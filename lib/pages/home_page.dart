@@ -3,6 +3,7 @@ import 'package:blog/tabs/blog_tab.dart';
 import 'package:blog/tabs/resume_tab.dart';
 import 'package:blog/tabs/tech_tab.dart';
 import 'package:blog/tabs/about_tab.dart';
+import 'package:blog/widgets/drawer_widget.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -14,7 +15,7 @@ class _HomePageState extends State<HomePage> {
   static List<Widget> tabWidgets = <Widget>[
     AboutTab(),
     BlogTab(),
-    ResumeTab(),
+    // ResumeTab(),
     TechTab(),
     //ProjectsTab(),
   ];
@@ -31,6 +32,7 @@ class _HomePageState extends State<HomePage> {
       body: Center(
         child: tabWidgets.elementAt(_selectedIndex),
       ),
+      drawer: SideDrawer(),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -41,14 +43,14 @@ class _HomePageState extends State<HomePage> {
             icon: Icon(Icons.chrome_reader_mode),
             title: Text('Blog'),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.insert_drive_file),
-            title: Text('Resume'),
-          ),
           // BottomNavigationBarItem(
-          //   icon: Icon(Icons.laptop_chromebook),
-          //   title: Text('Tech'),
-          // )
+          //   icon: Icon(Icons.insert_drive_file),
+          //   title: Text('Resume'),
+          // ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.laptop_chromebook),
+            title: Text('Tech'),
+          )
         ],
         currentIndex: _selectedIndex,
         onTap: (index) => setState(() => _selectedIndex = index),
