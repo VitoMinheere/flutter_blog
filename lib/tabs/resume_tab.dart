@@ -1,0 +1,77 @@
+import 'dart:html' as html;
+
+import 'package:blog/config/constants.dart';
+import 'package:blog/models/blog_model.dart';
+import 'package:blog/provider/api_provider.dart';
+import 'package:blog/widgets/blog_widget.dart';
+import 'package:blog/widgets/responsive_widget.dart';
+import 'package:flutter/material.dart';
+
+class ResumeTab extends StatefulWidget {
+  @override
+  _ResumeTabState createState() => _ResumeTabState();
+}
+
+class _ResumeTabState extends State<ResumeTab> {
+  ApiProvider _apiProvider = ApiProvider();
+  List<Blog> _blogs = [];
+  bool _loadingData = true;
+  bool _showError = false;
+
+  @override
+  Widget build(BuildContext context) {
+    if (_loadingData)
+      return Center(
+        child: CircularProgressIndicator(),
+      );
+    if (_showError) {
+      return Center(
+          child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              'Something went wrong',
+              style: Theme.of(context).textTheme.headline5,
+            ),
+          ),
+          RaisedButton(
+            child: Text(
+              'Retry',
+              style: Theme.of(context)
+                  .textTheme
+                  .button
+                  .copyWith(color: Colors.white),
+            ),
+            elevation: 0.0,
+            onPressed: () {},
+          )
+        ],
+      ));
+    }
+    return ResponsiveWidget(
+      largeScreen: Row(
+        children: <Widget>[
+          Expanded(
+            flex: 1,
+            child: Container(),
+          ),
+          Expanded(
+            flex: 2,
+            child: resume(),
+          ),
+          Expanded(
+            flex: 1,
+            child: Container(),
+          )
+        ],
+      ),
+      smallScreen: resume(),
+    );
+  }
+
+  Widget resume() {
+    return SingleChildScrollView();
+  }
+}

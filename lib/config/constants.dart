@@ -5,4 +5,5 @@ class Constants {
   static const PROFILE_GITHUB = 'https://github.com/VitoMinheere/';
   static const PROFILE_INSTAGRAM =
       'https://www.instagram.com/kapitein_kruishef/';
+  static const PROFILE_STRAVA = 'https://www.strava.com/athletes/21807286';
 }

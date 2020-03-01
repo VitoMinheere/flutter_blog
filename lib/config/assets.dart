@@ -4,4 +4,5 @@ class Assets {
   static const github = 'assets/github.png';
   static const instagram = 'assets/instagram.png';
   static const linkedin = 'assets/linkedin.png';
+  static const strava = 'assets/strava.png';
 }

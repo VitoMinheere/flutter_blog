@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:blog/tabs/blog_tab.dart';
+import 'package:blog/tabs/resume_tab.dart';
+import 'package:blog/tabs/tech_tab.dart';
 import 'package:blog/tabs/about_tab.dart';
 
 class HomePage extends StatefulWidget {
@@ -12,6 +14,8 @@ class _HomePageState extends State<HomePage> {
   static List<Widget> tabWidgets = <Widget>[
     AboutTab(),
     BlogTab(),
+    ResumeTab(),
+    TechTab(),
     //ProjectsTab(),
   ];
 
@@ -37,9 +41,13 @@ class _HomePageState extends State<HomePage> {
             icon: Icon(Icons.chrome_reader_mode),
             title: Text('Blog'),
           ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.insert_drive_file),
+            title: Text('Resume'),
+          ),
           // BottomNavigationBarItem(
-          //   icon: Icon(Icons.mobile_screen_share),
-          //   title: Text('Projects'),
+          //   icon: Icon(Icons.laptop_chromebook),
+          //   title: Text('Tech'),
           // )
         ],
         currentIndex: _selectedIndex,

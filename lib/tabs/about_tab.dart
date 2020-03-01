@@ -28,13 +28,19 @@ class AboutTab extends StatelessWidget {
                 height: 20,
               ),
               Text(
-                'Python. Flutter. Google Cloud. Motorcycles.\nLikes opmtimizing thingd.',
+                'Data Engineer, Google Cloud, Python, Flutter \n Powerlifting, Motorcycle riding, Progession.',
                 style: Theme.of(context).textTheme.caption,
                 textScaleFactor: 2,
                 textAlign: TextAlign.center,
               ),
               SizedBox(
                 height: 40,
+              ),
+              Text(
+                'Professional',
+                style: Theme.of(context).textTheme.caption,
+                textScaleFactor: 2,
+                textAlign: TextAlign.center,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -49,7 +55,22 @@ class AboutTab extends StatelessWidget {
                     onPressed: () =>
                         html.window.open(Constants.PROFILE_GITHUB, 'blog'),
                   ),
+                  FlatButton.icon(
+                    icon: SizedBox(
+                        width: 20,
+                        height: 20,
+                        child: Image.asset(Assets.linkedin)),
+                    label: Text('Linkedin'),
+                    onPressed: () =>
+                        html.window.open(Constants.PROFILE_LINKEDIN, 'blog'),
+                  )
                 ],
+              ),
+              Text(
+                'Personal',
+                style: Theme.of(context).textTheme.caption,
+                textScaleFactor: 2,
+                textAlign: TextAlign.center,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -68,11 +89,11 @@ class AboutTab extends StatelessWidget {
                     icon: SizedBox(
                         width: 20,
                         height: 20,
-                        child: Image.asset(Assets.linkedin)),
-                    label: Text('Linkedin'),
+                        child: Image.asset(Assets.strava)),
+                    label: Text('Strava'),
                     onPressed: () =>
-                        html.window.open(Constants.PROFILE_LINKEDIN, 'blog'),
-                  )
+                        html.window.open(Constants.PROFILE_STRAVA, 'blog'),
+                  ),
                 ],
               )
             ],
