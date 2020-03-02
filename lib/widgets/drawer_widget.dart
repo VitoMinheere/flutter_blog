@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:blog/tabs/blog_tab.dart';
-import 'package:blog/tabs/tech_tab.dart';
 import 'package:blog/pages/blog_page.dart';
 import 'package:blog/pages/resume_page.dart';
 import 'package:blog/pages/home_page.dart';

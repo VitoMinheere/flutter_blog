@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:blog/tabs/blog_tab.dart';
-import 'package:blog/tabs/resume_tab.dart';
-import 'package:blog/tabs/tech_tab.dart';
-import 'package:blog/tabs/about_tab.dart';
 import 'package:blog/widgets/drawer_widget.dart';
 import 'package:blog/config/assets.dart';
 import 'package:blog/config/constants.dart';
@@ -15,15 +11,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _selectedIndex = 0;
-  static List<Widget> tabWidgets = <Widget>[
-    AboutTab(),
-    BlogTab(),
-    // ResumeTab(),
-    TechTab(),
-    //ProjectsTab(),
-  ];
-
   @override
   void initState() {
     super.initState();
@@ -55,7 +42,7 @@ class _HomePageState extends State<HomePage> {
                   height: 20,
                 ),
                 Text(
-                  'Data Engineer, Google Cloud, Python, Flutter \n Powerlifting, Motorcycle riding, Progession.',
+                  'Data Engineer, Google Cloud, Python, Flutter \n Powerlifting, Motorcycle riding.',
                   style: Theme.of(context).textTheme.caption,
                   textScaleFactor: 2,
                   textAlign: TextAlign.center,
