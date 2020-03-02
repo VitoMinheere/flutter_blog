@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter/material.dart';
+import 'package:blog/config/constants.dart';
 import 'package:blog/config/assets.dart';
-import 'package:blog/widgets/responsive_widget.dart';
 import 'package:blog/widgets/drawer_widget.dart';
+import 'dart:html' as html;
+import 'package:http/http.dart' as http;
 
 class ResumePage extends StatelessWidget {
   @override
@@ -17,16 +19,9 @@ class ResumePage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                CircleAvatar(
-                  radius: 100,
-                  backgroundImage: Image.asset(Assets.avatar).image,
-                ),
-                SizedBox(
-                  height: 20,
-                ),
                 Text(
-                  'Tech',
-                  textScaleFactor: 4,
+                  'Resume',
+                  textScaleFactor: 8,
                 ),
                 SizedBox(
                   height: 20,
@@ -40,17 +35,9 @@ class ResumePage extends StatelessWidget {
                 SizedBox(
                   height: 40,
                 ),
-                Text(
-                  'Stack',
-                  style: Theme.of(context).textTheme.caption,
-                  textScaleFactor: 2,
-                  textAlign: TextAlign.center,
-                ),
-                Text(
-                  'Languages: Python, Typescript, Dart, Flutter\n Hosting: Google Cloud Platform \n Data: Pandas, Dataflow, Bigquery',
-                  style: Theme.of(context).textTheme.caption,
-                  textScaleFactor: 2,
-                  textAlign: TextAlign.center,
+                RaisedButton(
+                  child: Text('Download .pdf'),
+                  onPressed: () => html.window.open(Constants.RESUME_EN, 'pdf'),
                 ),
               ],
             ),
