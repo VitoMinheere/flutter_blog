@@ -1,13 +1,32 @@
+import 'package:blog/widgets/resume_widget.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter/material.dart';
 import 'package:blog/config/constants.dart';
-import 'package:blog/config/assets.dart';
+import 'package:blog/widgets/responsive_widget.dart';
 import 'package:blog/widgets/drawer_widget.dart';
+import 'package:blog/models/job_model.dart';
+import 'package:blog/provider/api_provider.dart';
 import 'dart:html' as html;
 import 'package:http/http.dart' as http;
 
-class ResumePage extends StatelessWidget {
+class ResumePage extends StatefulWidget {
+  @override
+  _ResumePageState createState() => _ResumePageState();
+}
+
+class _ResumePageState extends State<ResumePage> {
+  ApiProvider _apiProvider = ApiProvider();
+  List<Job> _jobs = [];
+  bool _loadingData = true;
+  bool _showError = false;
+
+  @override
+  void initState() {
+    super.initState();
+    loadJobs();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,17 +39,11 @@ class ResumePage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  'Resume',
+                  'Experience',
                   textScaleFactor: 8,
                 ),
                 SizedBox(
                   height: 20,
-                ),
-                Text(
-                  'Laptop: Thinkpad T440p\n Os: Arch Linux\n Phone: Mi a2 Lite',
-                  style: Theme.of(context).textTheme.caption,
-                  textScaleFactor: 2,
-                  textAlign: TextAlign.center,
                 ),
                 SizedBox(
                   height: 40,
@@ -39,6 +52,25 @@ class ResumePage extends StatelessWidget {
                   child: Text('Download .pdf'),
                   onPressed: () => html.window.open(Constants.RESUME_EN, 'pdf'),
                 ),
+                ResponsiveWidget(
+                  largeScreen: Row(
+                    children: <Widget>[
+                      Expanded(
+                        flex: 1,
+                        child: Container(),
+                      ),
+                      Expanded(
+                        flex: 2,
+                        child: jobList(),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: Container(),
+                      )
+                    ],
+                  ),
+                  smallScreen: jobList(),
+                ),
               ],
             ),
           ),
@@ -46,5 +78,44 @@ class ResumePage extends StatelessWidget {
       ),
       drawer: SideDrawer(),
     );
+  }
+
+  Widget jobList() {
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 16.0),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            ListView.builder(
+              itemCount: _jobs.length,
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemBuilder: (context, index) =>
+                  ResumeWidget(_jobs[index], index, _jobs.length),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void loadJobs() async {
+    setState(() {
+      _loadingData = true;
+      _showError = false;
+    });
+    final result = await _apiProvider.getJobs();
+    print(result);
+    setState(() {
+      if (result == null) {
+        _showError = true;
+        _loadingData = false;
+      } else {
+        _jobs = result;
+        _showError = false;
+        _loadingData = false;
+      }
+    });
   }
 }
