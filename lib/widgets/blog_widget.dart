@@ -1,6 +1,4 @@
-import 'package:blog/config/constants.dart';
 import 'package:flutter/material.dart';
-import 'dart:html' as html;
 
 class BlogWidget extends StatelessWidget {
   final blog;
@@ -37,7 +35,6 @@ class BlogWidget extends StatelessWidget {
                 height: 8,
               ),
               Text(blog.subtitle, style: Theme.of(context).textTheme.subtitle2),
-              //Text(blog.virtuals.totalClapCount)
             ],
           ),
         ),

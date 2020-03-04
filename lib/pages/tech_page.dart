@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:blog/widgets/drawer_widget.dart';
 import 'package:blog/config/assets.dart';
 
 class TechPage extends StatelessWidget {
@@ -53,6 +54,7 @@ class TechPage extends StatelessWidget {
           ),
         ),
       ),
+      drawer: SideDrawer(),
     );
   }
 }

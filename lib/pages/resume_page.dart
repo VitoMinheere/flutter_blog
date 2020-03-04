@@ -1,14 +1,12 @@
 import 'package:blog/widgets/resume_widget.dart';
 import 'package:flutter/material.dart';
 
-import 'package:flutter/material.dart';
 import 'package:blog/config/constants.dart';
 import 'package:blog/widgets/responsive_widget.dart';
 import 'package:blog/widgets/drawer_widget.dart';
 import 'package:blog/models/job_model.dart';
 import 'package:blog/provider/api_provider.dart';
 import 'dart:html' as html;
-import 'package:http/http.dart' as http;
 
 class ResumePage extends StatefulWidget {
   @override

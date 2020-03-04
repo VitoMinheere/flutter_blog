@@ -1,3 +1,4 @@
+import 'package:blog/pages/tech_page.dart';
 import 'package:flutter/material.dart';
 import 'package:blog/pages/blog_page.dart';
 import 'package:blog/pages/resume_page.dart';
@@ -59,7 +60,7 @@ class _SideDrawerState extends State<SideDrawer> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => ResumePage(),
+                    builder: (context) => TechPage(),
                   ));
             },
           ),

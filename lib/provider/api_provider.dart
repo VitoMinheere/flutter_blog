@@ -39,7 +39,7 @@ class ApiProvider {
         company: Company(
           name: "Energyworx",
           ticker:
-              'https://media-exp1.licdn.com/dms/image/C4D0BAQGt1CafpL1eyA/company-logo_200_200/0?e=2159024400&v=beta&t=7hXrPCxQBV52pdHVxvE1ixs3kVWx9wAukt-JnOQZ7gA',
+              'https://henq.vc/wp-content/uploads/2019/06/Henq_portfolio_energyworx_logo.png',
         ),
       ),
     ];
