@@ -20,8 +20,9 @@ class ApiProvider {
     var results = [
       Job(
         title: "Data engineer",
-        summary: "Job summary",
-        startDate: DateTime(2019),
+        summary:
+            "Creating micro services in Docker to run on Google App Engine \n Creating a Data lake from multiple data sources such as Google Spreadsheets, ODBC, E-mail and SFTP file uploads \n Managing code base for a distributed data collection framework in Python",
+        startDate: DateTime(4, 2019),
         endDate: DateTime(2020),
         isCurrent: false,
         company: Company(
@@ -32,12 +33,26 @@ class ApiProvider {
       ),
       Job(
         title: "Python developer",
-        summary: "Job summary",
-        startDate: DateTime(2018),
-        endDate: DateTime(2019),
+        summary:
+            "Analyzing and transforming time series data from IoT smart meters using Pandas and Numpy \n Refactoring the monolith class for transforming data into smaller, easier testable components \n Supporting customers with updating and applying business rules to their data sources \n Managed the migration of the largest US customer to the new version of the data analysis framework",
+        startDate: DateTime(5, 2018),
+        endDate: DateTime(4, 2019),
         isCurrent: false,
         company: Company(
           name: "Energyworx",
+          ticker:
+              'https://henq.vc/wp-content/uploads/2019/06/Henq_portfolio_energyworx_logo.png',
+        ),
+      ),
+      Job(
+        title: "Graduation Internship Data Science",
+        summary:
+            "Research into container transportation price models \n Enriching API data from suppliers with extra data to be used in model \n Comparing the performance and accuracy of different models with Scikit-learn \n Building an API with Django to enable the product owner's website to query actual and predicted container transport prizes",
+        startDate: DateTime(5, 2018),
+        endDate: DateTime(4, 2019),
+        isCurrent: false,
+        company: Company(
+          name: "Globalistics",
           ticker:
               'https://henq.vc/wp-content/uploads/2019/06/Henq_portfolio_energyworx_logo.png',
         ),
