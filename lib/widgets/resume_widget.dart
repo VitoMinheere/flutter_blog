@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/animation.dart';
 import 'package:blog/models/job_model.dart';
 
 class ResumeWidget extends StatefulWidget {
@@ -13,11 +14,24 @@ class ResumeWidget extends StatefulWidget {
   _ResumeWidgetState createState() => _ResumeWidgetState();
 }
 
-class _ResumeWidgetState extends State<ResumeWidget> {
+class _ResumeWidgetState extends State<ResumeWidget>
+    with TickerProviderStateMixin {
+  AnimationController _controller;
+  Animation<double> _animation;
+
   @override
   void initState() {
     super.initState();
     widget._showSummary = false;
+    _controller = new AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 180),
+    );
+
+    _animation = new CurvedAnimation(
+      parent: _controller,
+      curve: new Interval(0.0, 1.0, curve: Curves.linear),
+    );
   }
 
   void showSummary() {
@@ -66,6 +80,25 @@ class _ResumeWidgetState extends State<ResumeWidget> {
                 ),
                 SizedBox(
                   height: 8,
+                ),
+                ScaleTransition(
+                  scale: _animation,
+                  alignment: FractionalOffset.center,
+                  child: Visibility(
+                    visible: _showSummary,
+                    child: Container(
+                      margin: EdgeInsets.only(right: 16.0),
+                      child: Text(
+                        job.summary,
+                        style: TextStyle(
+                          fontSize: 13.0,
+                          fontFamily: 'Roboto',
+                          color: Color(0xFF9E9E9E),
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
                 Visibility(
                     visible: _showSummary,
