@@ -9,6 +9,8 @@ import 'package:blog/provider/api_provider.dart';
 import 'dart:html' as html;
 
 class ResumePage extends StatefulWidget {
+  static String id = 'Resume';
+
   @override
   _ResumePageState createState() => _ResumePageState();
 }
@@ -28,7 +30,9 @@ class _ResumePageState extends State<ResumePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text("Resume"),
+      ),
       body: SingleChildScrollView(
         child: Center(
           child: Padding(
@@ -38,10 +42,7 @@ class _ResumePageState extends State<ResumePage> {
               children: <Widget>[
                 Text(
                   'Experience',
-                  textScaleFactor: 8,
-                ),
-                SizedBox(
-                  height: 20,
+                  textScaleFactor: 4,
                 ),
                 SizedBox(
                   height: 40,

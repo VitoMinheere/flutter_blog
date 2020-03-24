@@ -2,6 +2,11 @@ import 'package:blog/pages/home_page.dart';
 import 'package:blog/widgets/theme_inherited_widget.dart';
 import 'package:flutter/material.dart';
 
+import 'package:blog/pages/blog_page.dart';
+import 'package:blog/pages/home_page.dart';
+import 'package:blog/pages/resume_page.dart';
+import 'package:blog/pages/tech_page.dart';
+
 import 'config/themes.dart';
 
 void main() => runApp(MyApp());
@@ -29,7 +34,13 @@ class BlogSite extends StatelessWidget {
       theme: ThemeSwitcher.of(context).isDarkModeOn
           ? darkTheme(context)
           : lightTheme(context),
-      home: HomePage(),
+      initialRoute: HomePage.id,
+      routes: {
+        HomePage.id: (context) => HomePage(),
+        TechPage.id: (context) => TechPage(),
+        BlogPage.id: (context) => BlogPage(),
+        ResumePage.id: (context) => ResumePage(),
+      },
     );
   }
 }

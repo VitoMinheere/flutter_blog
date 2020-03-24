@@ -6,6 +6,8 @@ import 'package:blog/config/constants.dart';
 import 'dart:html' as html;
 
 class HomePage extends StatefulWidget {
+  static String id = '/';
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -19,7 +21,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text('About'),
+      ),
       body: SingleChildScrollView(
         child: Center(
           child: Padding(

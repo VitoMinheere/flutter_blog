@@ -3,6 +3,8 @@ import 'package:blog/widgets/drawer_widget.dart';
 import 'package:blog/config/assets.dart';
 
 class TechPage extends StatelessWidget {
+  static String id = 'Tech';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
