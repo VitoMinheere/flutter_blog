@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:blog/pages/blog_detail_page.dart';
+
 class BlogWidget extends StatelessWidget {
   final blog;
   final index;
@@ -10,7 +12,13 @@ class BlogWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     double topBottomPadding = (index == 0 || index == length - 1) ? 16.0 : 8.0;
     return InkWell(
-      onTap: () => {},
+      onTap: () {
+        print('Clicked');
+        // Navigator.pushNamed(context, BlogDetailPage.id);
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return BlogDetailPage(blog: blog);
+        }));
+      },
       // html.window.open(Constants.BLOG_URL + blog.uniqueSlug, 'blog'),
       child: Card(
         margin:
