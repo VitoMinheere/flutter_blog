@@ -37,7 +37,6 @@ class _ResumeWidgetState extends State<ResumeWidget>
   void showSummary() {
     setState(() {
       widget._showSummary = !widget._showSummary;
-      print(widget._showSummary);
     });
   }
 
@@ -54,7 +53,6 @@ class _ResumeWidgetState extends State<ResumeWidget>
       curve: Curves.easeIn,
       child: InkWell(
         onTap: () {
-          print("Clicked ${job.title} card");
           showSummary();
         },
         child: Card(
@@ -100,10 +98,6 @@ class _ResumeWidgetState extends State<ResumeWidget>
                     ),
                   ),
                 ),
-                Visibility(
-                    visible: _showSummary,
-                    child: Text(job.summary,
-                        style: Theme.of(context).textTheme.subtitle2)),
               ],
             ),
           ),
