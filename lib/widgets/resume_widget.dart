@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/animation.dart';
 import 'package:blog/models/job_model.dart';
 
 class ResumeWidget extends StatefulWidget {
@@ -13,17 +14,29 @@ class ResumeWidget extends StatefulWidget {
   _ResumeWidgetState createState() => _ResumeWidgetState();
 }
 
-class _ResumeWidgetState extends State<ResumeWidget> {
+class _ResumeWidgetState extends State<ResumeWidget>
+    with TickerProviderStateMixin {
+  AnimationController _controller;
+  Animation<double> _animation;
+
   @override
   void initState() {
     super.initState();
     widget._showSummary = false;
+    _controller = new AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 180),
+    );
+
+    _animation = new CurvedAnimation(
+      parent: _controller,
+      curve: new Interval(0.0, 1.0, curve: Curves.linear),
+    );
   }
 
   void showSummary() {
     setState(() {
       widget._showSummary = !widget._showSummary;
-      print(widget._showSummary);
     });
   }
 
@@ -40,7 +53,6 @@ class _ResumeWidgetState extends State<ResumeWidget> {
       curve: Curves.easeIn,
       child: InkWell(
         onTap: () {
-          print("Clicked ${job.title} card");
           showSummary();
         },
         child: Card(
@@ -67,10 +79,25 @@ class _ResumeWidgetState extends State<ResumeWidget> {
                 SizedBox(
                   height: 8,
                 ),
-                Visibility(
+                ScaleTransition(
+                  scale: _animation,
+                  alignment: FractionalOffset.center,
+                  child: Visibility(
                     visible: _showSummary,
-                    child: Text(job.summary,
-                        style: Theme.of(context).textTheme.subtitle2)),
+                    child: Container(
+                      margin: EdgeInsets.only(right: 16.0),
+                      child: Text(
+                        job.summary,
+                        style: TextStyle(
+                          fontSize: 13.0,
+                          fontFamily: 'Roboto',
+                          color: Color(0xFF9E9E9E),
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

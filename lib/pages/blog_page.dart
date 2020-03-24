@@ -3,6 +3,8 @@ import 'package:blog/tabs/blog_tab.dart';
 import 'package:blog/widgets/drawer_widget.dart';
 
 class BlogPage extends StatefulWidget {
+  static String id = 'Blog';
+
   @override
   _BlogPageState createState() => _BlogPageState();
 }
@@ -15,7 +17,9 @@ class _BlogPageState extends State<BlogPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text('Blog'),
+      ),
       drawer: SideDrawer(),
       body: Center(
         child: tabWidgets.elementAt(_selectedIndex),

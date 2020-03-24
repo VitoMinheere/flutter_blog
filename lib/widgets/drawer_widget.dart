@@ -20,9 +20,9 @@ class _SideDrawerState extends State<SideDrawer> {
     return Drawer(
       child: ListView(
         children: <Widget>[
-          ListTile(
-            leading: Icon(Icons.account_circle),
-            title: Text('About'),
+          DrawerRow(
+            icon: Icons.account_circle,
+            title: 'About',
             onTap: () {
               Navigator.push(
                   context,
@@ -31,9 +31,9 @@ class _SideDrawerState extends State<SideDrawer> {
                   ));
             },
           ),
-          ListTile(
-            leading: Icon(Icons.chrome_reader_mode),
-            title: Text('Blog'),
+          DrawerRow(
+            icon: Icons.chrome_reader_mode,
+            title: 'Blog',
             onTap: () {
               Navigator.push(
                   context,
@@ -42,9 +42,9 @@ class _SideDrawerState extends State<SideDrawer> {
                   ));
             },
           ),
-          ListTile(
-            leading: Icon(Icons.insert_drive_file),
-            title: Text('Resume'),
+          DrawerRow(
+            icon: Icons.insert_drive_file,
+            title: 'Resume',
             onTap: () {
               Navigator.push(
                   context,
@@ -53,9 +53,9 @@ class _SideDrawerState extends State<SideDrawer> {
                   ));
             },
           ),
-          ListTile(
-            leading: Icon(Icons.laptop_chromebook),
-            title: Text('Tech'),
+          DrawerRow(
+            icon: Icons.laptop_chromebook,
+            title: 'Tech',
             onTap: () {
               Navigator.push(
                   context,
@@ -65,6 +65,44 @@ class _SideDrawerState extends State<SideDrawer> {
             },
           ),
         ],
+      ),
+    );
+  }
+}
+
+class DrawerRow extends StatelessWidget {
+  final IconData icon;
+  final String title;
+  final Function onTap;
+
+  DrawerRow({this.icon, this.title, this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(2)),
+      child: InkWell(
+        onTap: onTap,
+        child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Padding(
+                  padding: const EdgeInsets.fromLTRB(23.0, 20.0, 24.0, 24.0),
+                  child: Icon(icon, color: Colors.grey[800], size: 24.0)),
+              Padding(
+                child: new Text(
+                  title,
+                  style: new TextStyle(
+                    fontSize: 18.0,
+                    color: Colors.grey[700],
+                    fontWeight: FontWeight.w200,
+                  ),
+                ),
+                padding: const EdgeInsets.fromLTRB(23.0, 20.0, 24.0, 24.0),
+              )
+            ]),
       ),
     );
   }
