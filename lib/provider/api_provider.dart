@@ -1,17 +1,17 @@
-import 'dart:convert';
-import 'package:flutter/material.dart';
-
-import 'package:blog/config/constants.dart';
 import 'package:blog/models/blog_model.dart';
 import 'package:blog/models/job_model.dart';
-import 'package:http/http.dart' as http;
 
 class ApiProvider {
   // TODO Load the blogs from firebase
   Future<List<Blog>> getBlogs() async {
     var results = [
-      Blog(id: "1", title: "Test", subtitle: "Test subtitle"),
-      Blog(id: "2", title: "Test", subtitle: "Test subtitle")
+      Blog(
+          id: "1",
+          title: "Making this blog",
+          subtitle: "How this blog was made using Flutter"),
+      Blog(id: "2", title: "Test 2", subtitle: "Test subtitle"),
+      Blog(id: "3", title: "Test 3", subtitle: "Test subtitle"),
+      Blog(id: "4", title: "Test 4", subtitle: "Test subtitle"),
     ];
     return results;
   }
@@ -54,7 +54,7 @@ class ApiProvider {
         company: Company(
           name: "Globalistics",
           ticker:
-              'https://henq.vc/wp-content/uploads/2019/06/Henq_portfolio_energyworx_logo.png',
+              'https://globalistics.nl/wp-content/uploads/2016/01/wegtransport-zeevracht-en-warehousing-200.png',
         ),
       ),
     ];

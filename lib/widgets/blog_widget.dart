@@ -13,13 +13,10 @@ class BlogWidget extends StatelessWidget {
     double topBottomPadding = (index == 0 || index == length - 1) ? 16.0 : 8.0;
     return InkWell(
       onTap: () {
-        print('Clicked');
-        // Navigator.pushNamed(context, BlogDetailPage.id);
         Navigator.push(context, MaterialPageRoute(builder: (context) {
           return BlogDetailPage(blog: blog);
         }));
       },
-      // html.window.open(Constants.BLOG_URL + blog.uniqueSlug, 'blog'),
       child: Card(
         margin:
             EdgeInsets.fromLTRB(16.0, topBottomPadding, 16.0, topBottomPadding),
@@ -29,9 +26,10 @@ class BlogWidget extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              // Image.network(
-              //   Constants.MEDIUM_IMAGE_CDN + blog.virtuals.previewImage.imageId,
-              // ),
+              Image.asset(
+                blog.previewImage,
+                fit: BoxFit.fill,
+              ),
               SizedBox(
                 height: 16,
               ),

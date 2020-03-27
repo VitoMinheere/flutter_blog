@@ -92,11 +92,13 @@ class _BlogPageState extends State<BlogPage> {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             ListView.builder(
-                itemCount: _blogs.length,
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                itemBuilder: (context, index) =>
-                    BlogWidget(_blogs[index], index, _blogs.length)),
+              itemCount: _blogs.length,
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemBuilder: (context, index) =>
+                  BlogWidget(_blogs[index], index, _blogs.length),
+              reverse: true,
+            ),
             RaisedButton(
                 child: Text(
                   'More',
