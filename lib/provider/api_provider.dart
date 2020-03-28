@@ -1,19 +1,44 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+
 import 'package:blog/models/blog_model.dart';
 import 'package:blog/models/job_model.dart';
 
+import 'package:http/http.dart' as http;
+
+final _firestore = Firestore.instance;
+final _firebaseStorage = FirebaseStorage.instance;
+
 class ApiProvider {
-  // TODO Load the blogs from firebase
+  // Load the blog list from firestore
   Future<List<Blog>> getBlogs() async {
-    var results = [
-      Blog(
-          id: "1",
-          title: "Making this blog",
-          subtitle: "How this blog was made using Flutter"),
-      Blog(id: "2", title: "Test 2", subtitle: "Test subtitle"),
-      Blog(id: "3", title: "Test 3", subtitle: "Test subtitle"),
-      Blog(id: "4", title: "Test 4", subtitle: "Test subtitle"),
-    ];
-    return results;
+    var results = await _firestore.collection('blogs').getDocuments();
+
+    return results.documents
+        .map((doc) => Blog(
+            id: doc.data['id'],
+            title: doc.data['title'],
+            subtitle: doc.data['subtitle'],
+            fileName: doc.data['fileName'],
+            body: doc.data['body'],
+            createdAt: doc.data['createdAt'],
+            previewImage: doc.data['previewImage']))
+        .toList();
+  }
+
+  Future<String> getBlogBody(String fileName) async {
+    // Load firebase
+    // TODO Load from firebase when it is supported in Flutter Web
+    // var blogBody =
+    //     await _firebaseStorage.ref().child("blogs/" + fileName).getData(1000);
+    // var text = new String.fromCharCodes(blogBody);
+    // print("data= " + blogBody.toString());
+    // print("text= " + text);
+
+    String blogBody = (await http.get("assets/blogs/" + fileName)).body;
+    print(blogBody);
+
+    return blogBody;
   }
 
   Future<List<Job>> getJobs() async {
@@ -71,3 +96,12 @@ class ApiProvider {
 //     return null;
 //   }
 // }
+// var results = [
+//       Blog(
+//           id: "1",
+//           title: "Making this blog",
+//           subtitle: "How this blog was made using Flutter"),
+//       Blog(id: "2", title: "Test 2", subtitle: "Test subtitle"),
+//       Blog(id: "3", title: "Test 3", subtitle: "Test subtitle"),
+//       Blog(id: "4", title: "Test 4", subtitle: "Test subtitle"),
+//     ];

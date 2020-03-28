@@ -18,6 +18,9 @@ class BlogWidget extends StatelessWidget {
         }));
       },
       child: Card(
+        shape: RoundedRectangleBorder(
+            side: BorderSide(color: Colors.grey, width: 2.0),
+            borderRadius: BorderRadius.circular(4.0)),
         margin:
             EdgeInsets.fromLTRB(16.0, topBottomPadding, 16.0, topBottomPadding),
         child: Container(

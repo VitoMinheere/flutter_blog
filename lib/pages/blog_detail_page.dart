@@ -3,6 +3,7 @@ import 'package:flutter_markdown/flutter_markdown.dart';
 
 import 'package:blog/widgets/drawer_widget.dart';
 import 'package:blog/models/blog_model.dart';
+import 'package:blog/provider/api_provider.dart';
 
 class BlogDetailPage extends StatefulWidget {
   static String id = 'BlogDetail';
@@ -15,10 +16,68 @@ class BlogDetailPage extends StatefulWidget {
 }
 
 class _BlogDetailPageState extends State<BlogDetailPage> {
+  ApiProvider _apiProvider = ApiProvider();
+  Blog _blog;
+  bool _loadingData = true;
+  bool _showError = false;
+
+  @override
+  void initState() {
+    super.initState();
+    loadBlog();
+  }
+
+  void loadBlog() async {
+    setState(() {
+      _loadingData = true;
+      _showError = false;
+    });
+    var blog = widget.blog;
+    blog.body = await _apiProvider.getBlogBody(blog.fileName);
+    setState(() {
+      if (blog.body == null) {
+        _showError = true;
+        _loadingData = false;
+      } else {
+        _blog = blog;
+        _showError = false;
+        _loadingData = false;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    Blog blog = widget.blog;
-
+    if (_loadingData)
+      return Center(
+        child: CircularProgressIndicator(),
+      );
+    if (_showError) {
+      return Center(
+          child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              'Something went wrong',
+              style: Theme.of(context).textTheme.headline5,
+            ),
+          ),
+          RaisedButton(
+            child: Text(
+              'Retry',
+              style: Theme.of(context)
+                  .textTheme
+                  .button
+                  .copyWith(color: Colors.white),
+            ),
+            elevation: 0.0,
+            onPressed: loadBlog,
+          )
+        ],
+      ));
+    }
     return Scaffold(
       appBar: AppBar(),
       body: SingleChildScrollView(
@@ -34,7 +93,7 @@ class _BlogDetailPageState extends State<BlogDetailPage> {
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: Image.asset(blog.previewImage).image,
+                      image: Image.asset(_blog.previewImage).image,
                     ),
                     borderRadius: BorderRadius.all(Radius.circular(8.0)),
                   ),
@@ -43,14 +102,14 @@ class _BlogDetailPageState extends State<BlogDetailPage> {
                   height: 20,
                 ),
                 Text(
-                  blog.title,
+                  _blog.title,
                   textScaleFactor: 4,
                 ),
                 SizedBox(
                   height: 20,
                 ),
                 Text(
-                  blog.subtitle,
+                  _blog.subtitle,
                   textScaleFactor: 2,
                 ),
                 SizedBox(
@@ -60,7 +119,7 @@ class _BlogDetailPageState extends State<BlogDetailPage> {
                   child: Container(
                     constraints: BoxConstraints(maxWidth: 800),
                     child: MarkdownBody(
-                      data: blog.body,
+                      data: _blog.body,
                     ),
                   ),
                 ),
