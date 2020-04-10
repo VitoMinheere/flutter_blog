@@ -36,7 +36,6 @@ class ApiProvider {
     // print("text= " + text);
 
     String blogBody = (await http.get("assets/blogs/" + fileName)).body;
-    print(blogBody);
 
     return blogBody;
   }
