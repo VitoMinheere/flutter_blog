@@ -81,6 +81,15 @@ class _HomePageState extends State<HomePage> {
                       label: Text('Linkedin'),
                       onPressed: () =>
                           html.window.open(Constants.PROFILE_LINKEDIN, 'blog'),
+                    ),
+                    FlatButton.icon(
+                      icon: SizedBox(
+                          width: 20,
+                          height: 20,
+                          child: Image.asset(Assets.itchio)),
+                      label: Text('Itch.io'),
+                      onPressed: () =>
+                          html.window.open(Constants.PROFILE_ITCHIO, 'blog'),
                     )
                   ],
                 ),

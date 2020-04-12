@@ -6,6 +6,7 @@ import 'package:blog/pages/blog_detail_page.dart';
 import 'package:blog/pages/home_page.dart';
 import 'package:blog/pages/resume_page.dart';
 import 'package:blog/pages/tech_page.dart';
+import 'package:blog/pages/projects_page.dart';
 
 import 'config/themes.dart';
 
@@ -29,7 +30,7 @@ class BlogSite extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: true,
       title: 'Vito Minheere',
       theme: ThemeSwitcher.of(context).isDarkModeOn
           ? darkTheme(context)
@@ -40,7 +41,8 @@ class BlogSite extends StatelessWidget {
         TechPage.id: (context) => TechPage(),
         BlogPage.id: (context) => BlogPage(),
         BlogDetailPage.id: (context) => BlogDetailPage(),
-        ResumePage.id: (context) => ResumePage(),
+        // ResumePage.id: (context) => ResumePage(),
+        ProjectsPage.id: (context) => ProjectsPage(),
       },
     );
   }
