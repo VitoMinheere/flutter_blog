@@ -1,3 +1,4 @@
+import 'package:blog/pages/projects_page.dart';
 import 'package:blog/pages/tech_page.dart';
 import 'package:flutter/material.dart';
 import 'package:blog/pages/blog_page.dart';
@@ -42,17 +43,17 @@ class _SideDrawerState extends State<SideDrawer> {
                   ));
             },
           ),
-          DrawerRow(
-            icon: Icons.insert_drive_file,
-            title: 'Resume',
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ResumePage(),
-                  ));
-            },
-          ),
+          // DrawerRow(
+          //   icon: Icons.insert_drive_file,
+          //   title: 'Resume',
+          //   onTap: () {
+          //     Navigator.push(
+          //         context,
+          //         MaterialPageRoute(
+          //           builder: (context) => ResumePage(),
+          //         ));
+          //   },
+          // ),
           DrawerRow(
             icon: Icons.laptop_chromebook,
             title: 'Tech',
@@ -61,6 +62,17 @@ class _SideDrawerState extends State<SideDrawer> {
                   context,
                   MaterialPageRoute(
                     builder: (context) => TechPage(),
+                  ));
+            },
+          ),
+          DrawerRow(
+            icon: Icons.important_devices,
+            title: 'Projects',
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ProjectsPage(),
                   ));
             },
           ),

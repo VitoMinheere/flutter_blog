@@ -10,7 +10,6 @@ final _firestore = Firestore.instance;
 final _firebaseStorage = FirebaseStorage.instance;
 
 class ApiProvider {
-  // Load the blog list from firestore
   Future<List<Blog>> getBlogs() async {
     var results = await _firestore.collection('blogs').getDocuments();
 
@@ -27,14 +26,6 @@ class ApiProvider {
   }
 
   Future<String> getBlogBody(String fileName) async {
-    // Load firebase
-    // TODO Load from firebase when it is supported in Flutter Web
-    // var blogBody =
-    //     await _firebaseStorage.ref().child("blogs/" + fileName).getData(1000);
-    // var text = new String.fromCharCodes(blogBody);
-    // print("data= " + blogBody.toString());
-    // print("text= " + text);
-
     String blogBody = (await http.get("assets/blogs/" + fileName)).body;
 
     return blogBody;

@@ -5,5 +5,5 @@ class Assets {
   static const instagram = 'assets/instagram.png';
   static const linkedin = 'assets/linkedin.png';
   static const strava = 'assets/strava.png';
-  static const resume_pdf = 'assets/resume/cv.pdf';
+  static const itchio = 'assets/itchio.png';
 }

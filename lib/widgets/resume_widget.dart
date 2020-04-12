@@ -49,7 +49,7 @@ class _ResumeWidgetState extends State<ResumeWidget>
 
     double topBottomPadding = (index == 0 || index == length - 1) ? 16.0 : 8.0;
     return AnimatedContainer(
-      duration: Duration(seconds: 2),
+      duration: Duration(seconds: 1),
       curve: Curves.easeIn,
       child: InkWell(
         onTap: () {
@@ -74,6 +74,7 @@ class _ResumeWidgetState extends State<ResumeWidget>
                       job.title,
                       style: Theme.of(context).textTheme.headline6,
                     ),
+                    Text(_showSummary.toString()),
                   ],
                 ),
                 SizedBox(
@@ -85,6 +86,7 @@ class _ResumeWidgetState extends State<ResumeWidget>
                   child: Visibility(
                     visible: _showSummary,
                     child: Container(
+                      color: Colors.orange,
                       margin: EdgeInsets.only(right: 16.0),
                       child: Text(
                         job.summary,
