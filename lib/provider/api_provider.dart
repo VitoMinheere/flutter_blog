@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 
 import 'package:blog/models/blog_model.dart';
 import 'package:blog/models/job_model.dart';
@@ -7,7 +6,6 @@ import 'package:blog/models/job_model.dart';
 import 'package:http/http.dart' as http;
 
 final _firestore = Firestore.instance;
-final _firebaseStorage = FirebaseStorage.instance;
 
 class ApiProvider {
   Future<List<Blog>> getBlogs() async {
@@ -76,22 +74,3 @@ class ApiProvider {
     return results;
   }
 }
-// Future<List<Blog>> getBlogs() async {
-//   final response = await http.get(Constants.BLOG_API);
-//   if (response.statusCode == 200) {
-//     List blogs = json.decode(utf8.decode(response.bodyBytes))['response'];
-//     var results = blogs.map((blog) => Blog.fromJson(blog)).toList();
-//     return results;
-//   } else {
-//     return null;
-//   }
-// }
-// var results = [
-//       Blog(
-//           id: "1",
-//           title: "Making this blog",
-//           subtitle: "How this blog was made using Flutter"),
-//       Blog(id: "2", title: "Test 2", subtitle: "Test subtitle"),
-//       Blog(id: "3", title: "Test 3", subtitle: "Test subtitle"),
-//       Blog(id: "4", title: "Test 4", subtitle: "Test subtitle"),
-//     ];

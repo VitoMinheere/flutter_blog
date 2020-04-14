@@ -1,9 +1,4 @@
-import 'package:blog/pages/projects_page.dart';
-import 'package:blog/pages/tech_page.dart';
 import 'package:flutter/material.dart';
-import 'package:blog/pages/blog_page.dart';
-import 'package:blog/pages/resume_page.dart';
-import 'package:blog/pages/home_page.dart';
 
 class SideDrawer extends StatefulWidget {
   @override
@@ -25,22 +20,14 @@ class _SideDrawerState extends State<SideDrawer> {
             icon: Icons.account_circle,
             title: 'About',
             onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => HomePage(),
-                  ));
+              Navigator.pushNamed(context, "/");
             },
           ),
           DrawerRow(
             icon: Icons.chrome_reader_mode,
             title: 'Blog',
             onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => BlogPage(),
-                  ));
+              Navigator.pushNamed(context, "/blog");
             },
           ),
           // DrawerRow(
@@ -54,26 +41,22 @@ class _SideDrawerState extends State<SideDrawer> {
           //         ));
           //   },
           // ),
-          DrawerRow(
-            icon: Icons.laptop_chromebook,
-            title: 'Tech',
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => TechPage(),
-                  ));
-            },
-          ),
+          // DrawerRow(
+          //   icon: Icons.laptop_chromebook,
+          //   title: 'Tech',
+          //   onTap: () {
+          //     Navigator.push(
+          //         context,
+          //         MaterialPageRoute(
+          //           builder: (context) => TechPage(),
+          //         ));
+          //   },
+          // ),
           DrawerRow(
             icon: Icons.important_devices,
             title: 'Projects',
             onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ProjectsPage(),
-                  ));
+              Navigator.pushNamed(context, "/projects");
             },
           ),
         ],
