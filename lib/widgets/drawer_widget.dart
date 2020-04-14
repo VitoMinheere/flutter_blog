@@ -30,17 +30,13 @@ class _SideDrawerState extends State<SideDrawer> {
               Navigator.pushNamed(context, "/blog");
             },
           ),
-          // DrawerRow(
-          //   icon: Icons.insert_drive_file,
-          //   title: 'Resume',
-          //   onTap: () {
-          //     Navigator.push(
-          //         context,
-          //         MaterialPageRoute(
-          //           builder: (context) => ResumePage(),
-          //         ));
-          //   },
-          // ),
+          DrawerRow(
+            icon: Icons.insert_drive_file,
+            title: 'Resume',
+            onTap: () {
+              Navigator.pushNamed(context, "/resume");
+            },
+          ),
           // DrawerRow(
           //   icon: Icons.laptop_chromebook,
           //   title: 'Tech',
@@ -85,13 +81,13 @@ class DrawerRow extends StatelessWidget {
             children: <Widget>[
               Padding(
                   padding: const EdgeInsets.fromLTRB(23.0, 20.0, 24.0, 24.0),
-                  child: Icon(icon, color: Colors.grey[800], size: 24.0)),
+                  child: Icon(icon, color: Colors.grey[100], size: 24.0)),
               Padding(
                 child: new Text(
                   title,
                   style: new TextStyle(
                     fontSize: 18.0,
-                    color: Colors.grey[700],
+                    color: Colors.grey[100],
                     fontWeight: FontWeight.w200,
                   ),
                 ),
