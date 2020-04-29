@@ -1,9 +1,4 @@
-import 'package:blog/pages/projects_page.dart';
-import 'package:blog/pages/tech_page.dart';
 import 'package:flutter/material.dart';
-import 'package:blog/pages/blog_page.dart';
-import 'package:blog/pages/resume_page.dart';
-import 'package:blog/pages/home_page.dart';
 
 class SideDrawer extends StatefulWidget {
   @override
@@ -25,55 +20,39 @@ class _SideDrawerState extends State<SideDrawer> {
             icon: Icons.account_circle,
             title: 'About',
             onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => HomePage(),
-                  ));
+              Navigator.pushNamed(context, "/");
             },
           ),
           DrawerRow(
             icon: Icons.chrome_reader_mode,
             title: 'Blog',
             onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => BlogPage(),
-                  ));
+              Navigator.pushNamed(context, "/blog");
+            },
+          ),
+          DrawerRow(
+            icon: Icons.insert_drive_file,
+            title: 'Resume',
+            onTap: () {
+              Navigator.pushNamed(context, "/resume");
             },
           ),
           // DrawerRow(
-          //   icon: Icons.insert_drive_file,
-          //   title: 'Resume',
+          //   icon: Icons.laptop_chromebook,
+          //   title: 'Tech',
           //   onTap: () {
           //     Navigator.push(
           //         context,
           //         MaterialPageRoute(
-          //           builder: (context) => ResumePage(),
+          //           builder: (context) => TechPage(),
           //         ));
           //   },
           // ),
           DrawerRow(
-            icon: Icons.laptop_chromebook,
-            title: 'Tech',
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => TechPage(),
-                  ));
-            },
-          ),
-          DrawerRow(
             icon: Icons.important_devices,
             title: 'Projects',
             onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ProjectsPage(),
-                  ));
+              Navigator.pushNamed(context, "/projects");
             },
           ),
         ],
@@ -102,13 +81,13 @@ class DrawerRow extends StatelessWidget {
             children: <Widget>[
               Padding(
                   padding: const EdgeInsets.fromLTRB(23.0, 20.0, 24.0, 24.0),
-                  child: Icon(icon, color: Colors.grey[800], size: 24.0)),
+                  child: Icon(icon, color: Colors.grey[100], size: 24.0)),
               Padding(
                 child: new Text(
                   title,
                   style: new TextStyle(
                     fontSize: 18.0,
-                    color: Colors.grey[700],
+                    color: Colors.grey[100],
                     fontWeight: FontWeight.w200,
                   ),
                 ),

@@ -1,5 +1,5 @@
-import 'package:blog/widgets/theme_inherited_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:fluro/fluro.dart';
 
 import 'package:blog/pages/blog_page.dart';
 import 'package:blog/pages/blog_detail_page.dart';
@@ -8,42 +8,72 @@ import 'package:blog/pages/resume_page.dart';
 import 'package:blog/pages/tech_page.dart';
 import 'package:blog/pages/projects_page.dart';
 
-import 'config/themes.dart';
+// import 'config/themes.dart';
 
-void main() => runApp(MyApp());
+class FluroRouter {
+  static Router router = Router();
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return ThemeSwitcherWidget(
-      initialDarkModeOn: false,
-      child: BlogSite(),
+  static Handler _blogDetailHandler = Handler(
+      handlerFunc: (BuildContext context, Map<String, dynamic> params) =>
+          BlogDetailPage(blogId: params['id'][0]));
+
+  static Handler _homeHandler = Handler(
+      handlerFunc: (BuildContext context, Map<String, dynamic> params) =>
+          HomePage());
+
+  static Handler _blogHandler = Handler(
+      handlerFunc: (BuildContext context, Map<String, dynamic> params) =>
+          BlogPage());
+
+  static Handler _projectsHandler = Handler(
+      handlerFunc: (BuildContext context, Map<String, dynamic> params) =>
+          ProjectsPage());
+
+  static Handler _resumeHandler = Handler(
+      handlerFunc: (BuildContext context, Map<String, dynamic> params) =>
+          ResumePage());
+
+  static void setupRouter() {
+    router.define(
+      '/',
+      handler: _homeHandler,
+    );
+    router.define(
+      '/blog',
+      handler: _blogHandler,
+    );
+    router.define(
+      '/blog/:id',
+      handler: _blogDetailHandler,
+    );
+    router.define(
+      '/projects',
+      handler: _projectsHandler,
+    );
+    router.define(
+      '/resume',
+      handler: _resumeHandler,
     );
   }
 }
 
-class BlogSite extends StatelessWidget {
-  const BlogSite({
-    Key key,
-  }) : super(key: key);
+void main() {
+  FluroRouter.setupRouter();
+  runApp(BlogSite());
+}
 
+class BlogSite extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: true,
       title: 'Vito Minheere',
-      theme: ThemeSwitcher.of(context).isDarkModeOn
-          ? darkTheme(context)
-          : lightTheme(context),
-      initialRoute: HomePage.id,
-      routes: {
-        HomePage.id: (context) => HomePage(),
-        TechPage.id: (context) => TechPage(),
-        BlogPage.id: (context) => BlogPage(),
-        BlogDetailPage.id: (context) => BlogDetailPage(),
-        // ResumePage.id: (context) => ResumePage(),
-        ProjectsPage.id: (context) => ProjectsPage(),
-      },
+      theme: ThemeData.dark().copyWith(
+        primaryColor: Color(0xFF0A0E21),
+        scaffoldBackgroundColor: Color(0xFF0A0E21),
+        accentColor: Colors.purple,
+      ),
+      onGenerateRoute: FluroRouter.router.generator,
     );
   }
 }

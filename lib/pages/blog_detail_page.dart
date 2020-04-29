@@ -9,7 +9,8 @@ class BlogDetailPage extends StatefulWidget {
   static String id = 'BlogDetail';
 
   final Blog blog;
-  BlogDetailPage({this.blog});
+  final int blogId;
+  BlogDetailPage({this.blog, this.blogId});
 
   @override
   _BlogDetailPageState createState() => _BlogDetailPageState();
