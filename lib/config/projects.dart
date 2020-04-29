@@ -19,10 +19,10 @@ final List<Project> projects = [
       image: Assets.github,
       description: 'The code to this blog is also on my github page',
       link: 'https://github.com/VitoMinheere/flutter_blog'),
-  Project(
-      name: 'Standup Dad',
-      image: Assets.itchio,
-      description:
-          'Small game i created in Godot Engine for the Godot Wild Jam #20',
-      link: 'https://vitominheere.itch.io/'),
+  // Project(
+  //     name: 'Standup Dad',
+  //     image: Assets.itchio,
+  //     description:
+  //         'Small game i created in Godot Engine for the Godot Wild Jam #20',
+  //     link: 'https://vitominheere.itch.io/'),
 ];

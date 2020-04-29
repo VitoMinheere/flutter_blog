@@ -8,7 +8,7 @@ import 'package:blog/pages/resume_page.dart';
 import 'package:blog/pages/tech_page.dart';
 import 'package:blog/pages/projects_page.dart';
 
-// import 'config/themes.dart';
+import 'config/themes.dart';
 
 class FluroRouter {
   static Router router = Router();
@@ -68,11 +68,12 @@ class BlogSite extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: true,
       title: 'Vito Minheere',
-      theme: ThemeData.dark().copyWith(
-        primaryColor: Color(0xFF0A0E21),
-        scaffoldBackgroundColor: Color(0xFF0A0E21),
-        accentColor: Colors.purple,
-      ),
+      theme: darkTheme(context),
+      // theme: ThemeData.dark().copyWith(
+      //   primaryColor: Color(0xFF0A0E21),
+      //   scaffoldBackgroundColor: Color(0xFF0A0E10),
+      //   accentColor: Colors.purple,
+      // ),
       onGenerateRoute: FluroRouter.router.generator,
     );
   }
