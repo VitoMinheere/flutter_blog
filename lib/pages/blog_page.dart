@@ -99,16 +99,6 @@ class _BlogPageState extends State<BlogPage> {
                   BlogWidget(_blogs[index], index, _blogs.length),
               reverse: true,
             ),
-            RaisedButton(
-                child: Text(
-                  'More',
-                  style: Theme.of(context)
-                      .textTheme
-                      .button
-                      .copyWith(color: Colors.white),
-                ),
-                elevation: 0.0,
-                onPressed: () => {})
           ],
         ),
       ),
