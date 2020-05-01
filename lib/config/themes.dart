@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 
 darkTheme(context) {
+  var main = Color(0xFF818D92);
+  var darker = Color(0xFF59656F);
+  var accent = Color(0xFF999AC6);
+  var white = Color(0xFFF4EDED);
+
   var dusty = Color(0xFF96858F);
   var oxblood = Color(0xFF76323F);
   var lavendar = Color(0xFF6D7993);
-  var main = Color(0xFF818D92);
   var paper = Color(0xFFD5D5D5);
   var tan = Color(0xFFC09F80);
 
@@ -13,9 +17,9 @@ darkTheme(context) {
     primarySwatch: Colors.brown,
     primaryColor: main,
     canvasColor: main,
-    accentColor: oxblood,
+    accentColor: accent,
     disabledColor: Colors.grey,
-    cardColor: paper,
+    cardColor: darker,
     brightness: Brightness.dark,
     textTheme: Theme.of(context).textTheme.apply(
           bodyColor: Colors.black,

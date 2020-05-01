@@ -29,10 +29,10 @@ class BlogWidget extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Image.asset(
-                blog.previewImage,
-                fit: BoxFit.fill,
-              ),
+              // Image.asset(
+              //   blog.previewImage,
+              //   fit: BoxFit.fill,
+              // ),
               SizedBox(
                 height: 16,
               ),
