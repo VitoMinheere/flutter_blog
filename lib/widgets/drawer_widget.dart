@@ -81,13 +81,13 @@ class DrawerRow extends StatelessWidget {
             children: <Widget>[
               Padding(
                   padding: const EdgeInsets.fromLTRB(23.0, 20.0, 24.0, 24.0),
-                  child: Icon(icon, color: Colors.grey[100], size: 24.0)),
+                  child: Icon(icon, color: Colors.grey[800], size: 24.0)),
               Padding(
                 child: Text(
                   title,
                   style: TextStyle(
                     fontSize: 18.0,
-                    color: Colors.grey[100],
+                    color: Colors.black,
                     fontWeight: FontWeight.w200,
                   ),
                 ),

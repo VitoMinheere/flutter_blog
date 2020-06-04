@@ -24,7 +24,9 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
+    - assets/images/
+    - assets/blogs/
   fonts:
-    - family: GoogleSansRegular
+    - family: Manrope
       fonts:
-        - asset: assets/GoogleSansRegular.ttf
+        - asset: assets/Manrope.ttf

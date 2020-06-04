@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 CircleAvatar(
-                  radius: 100,
+                  radius: 180,
                   backgroundImage: Image.asset(Assets.avatar).image,
                 ),
                 SizedBox(
@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
                   height: 20,
                 ),
                 Text(
-                  'Data Engineer, Google Cloud, Python, Flutter \n Powerlifting, Motorcycle riding.',
+                  'Data Engineer, Google Cloud, Python, Flutter \n Powerlifting, Motorcycles.',
                   style: Theme.of(context).textTheme.caption,
                   textScaleFactor: 2,
                   textAlign: TextAlign.center,

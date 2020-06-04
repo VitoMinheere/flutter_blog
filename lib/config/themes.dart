@@ -43,7 +43,7 @@ lightTheme(context) {
     primaryColor: Colors.white,
     accentColor: Colors.blue,
     disabledColor: Colors.grey,
-    cardColor: Colors.white,
+    cardColor: Colors.grey,
     canvasColor: Colors.white,
     brightness: Brightness.light,
     buttonTheme: Theme.of(context).buttonTheme.copyWith(

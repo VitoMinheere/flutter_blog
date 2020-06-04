@@ -67,7 +67,7 @@ class BlogSite extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: true,
       title: 'Vito Minheere',
-      theme: darkTheme(context),
+      theme: lightTheme(context),
       onGenerateRoute: FluroRouter.router.generator,
     );
   }
