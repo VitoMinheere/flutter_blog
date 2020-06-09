@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:blog/pages/blog_detail_page.dart';
-
 class BlogWidget extends StatelessWidget {
   final blog;
   final index;
@@ -13,9 +11,13 @@ class BlogWidget extends StatelessWidget {
     double topBottomPadding = (index == 0 || index == length - 1) ? 16.0 : 8.0;
     return InkWell(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return BlogDetailPage(blog: blog);
-        }));
+        print(this.blog.id);
+        print("/blog/${this.blog.id}");
+        Navigator.pushNamed(
+          context,
+          "/blog/",
+          arguments: {'id': this.blog.id, 'blog': this.blog},
+        );
       },
       child: Card(
         shape: RoundedRectangleBorder(
@@ -29,10 +31,6 @@ class BlogWidget extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              // Image.asset(
-              //   blog.previewImage,
-              //   fit: BoxFit.fill,
-              // ),
               SizedBox(
                 height: 16,
               ),

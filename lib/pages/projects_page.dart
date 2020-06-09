@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:blog/config/projects.dart';
+import 'package:blog/data/projects.dart';
 import 'package:blog/widgets/responsive_widget.dart';
 import 'package:blog/widgets/project_widget.dart';
 

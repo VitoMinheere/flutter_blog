@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
                   height: 20,
                 ),
                 Text(
-                  'Data Engineer, Google Cloud, Python, Flutter \n Powerlifting, Motorcycles.',
+                  'Google Cloud, Python, Flutter \n Powerlifting, Motorcycles.',
                   style: Theme.of(context).textTheme.caption,
                   textScaleFactor: 2,
                   textAlign: TextAlign.center,

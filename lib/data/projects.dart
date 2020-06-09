@@ -1,5 +1,5 @@
 import 'package:blog/models/project_model.dart';
-import 'assets.dart';
+import 'package:blog/config/assets.dart';
 
 final List<Project> projects = [
   Project(
@@ -22,7 +22,7 @@ final List<Project> projects = [
   Project(
       name: 'Grip Strength Trainer',
       image: Assets.github,
-      description: 'Flutter app to train your grip strength. Features a timer and stores your progression for different exercises',
+      description:
+          'Flutter app to train your grip strength. Features a timer and stores your progression for different exercises',
       link: 'https://github.com/VitoMinheere/flutter_grip_trainer'),
- 
 ];

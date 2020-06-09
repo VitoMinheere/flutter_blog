@@ -1,13 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Blog {
-  String id;
+  int id;
   String title;
   String subtitle;
   String fileName;
   String body;
   Timestamp createdAt;
-  String previewImage;
 
   Blog({
     this.id,
@@ -16,6 +15,5 @@ class Blog {
     this.fileName,
     this.body,
     this.createdAt,
-    this.previewImage = 'assets/wall.png',
   });
 }

@@ -13,13 +13,13 @@ class ApiProvider {
 
     return results.documents
         .map((doc) => Blog(
-            id: doc.data['id'],
-            title: doc.data['title'],
-            subtitle: doc.data['subtitle'],
-            fileName: doc.data['fileName'],
-            body: doc.data['body'],
-            createdAt: doc.data['createdAt'],
-            previewImage: doc.data['previewImage']))
+              id: doc.data['id'],
+              title: doc.data['title'],
+              subtitle: doc.data['subtitle'],
+              fileName: doc.data['fileName'],
+              body: doc.data['body'],
+              createdAt: doc.data['createdAt'],
+            ))
         .toList();
   }
 
