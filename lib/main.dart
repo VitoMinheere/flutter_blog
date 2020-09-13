@@ -12,9 +12,11 @@ import 'config/themes.dart';
 class FluroRouter {
   static Router router = Router();
 
-  static Handler _blogDetailHandler = Handler(
-      handlerFunc: (BuildContext context, Map<String, dynamic> params) =>
-          BlogDetailPage(blogId: params['id'][0]));
+  static Handler _blogDetailHandler =
+      Handler(handlerFunc: (BuildContext context, Map<String, dynamic> params) {
+    print(params['id'][0]);
+    return BlogDetailPage(blogId: 1);
+  });
 
   static Handler _homeHandler = Handler(
       handlerFunc: (BuildContext context, Map<String, dynamic> params) =>

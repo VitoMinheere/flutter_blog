@@ -34,6 +34,7 @@ class _BlogDetailPageState extends State<BlogDetailPage> {
       _showError = false;
     });
     var blog = widget.blog;
+    print(blog);
     blog.body = await _apiProvider.getBlogBody(blog.fileName);
     setState(() {
       if (blog.body == null) {
@@ -92,10 +93,6 @@ class _BlogDetailPageState extends State<BlogDetailPage> {
                   width: 300.0,
                   height: 250.0,
                   decoration: BoxDecoration(
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: Image.asset(_blog.previewImage).image,
-                    ),
                     borderRadius: BorderRadius.all(Radius.circular(8.0)),
                   ),
                 ),
